@@ -1,0 +1,44 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672" # RabbitMQ Management UI
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  orders_db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: orders_development
+    ports:
+      - "5432:5432" # Puedes cambiar si ya usas 5432
+    volumes:
+      - orders_db_data:/var/lib/postgresql/data
+
+  customer_db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: customer_development
+    ports:
+      - "5433:5432" # Usa un puerto diferente para la BD del cliente
+    volumes:
+      - customer_db_data:/var/lib/postgresql/data
+
+volumes:
+  orders_db_data:
+  customer_db_data:

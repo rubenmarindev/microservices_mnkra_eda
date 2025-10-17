@@ -1,0 +1,42 @@
+# .gitignore
+
+# Rails specific
+/.bundle
+/bin/*
+!/bin/rails
+!/bin/rake
+!/bin/setup
+#/config/database.yml
+/config/master.key
+/config/credentials.yml.enc
+/db/*.sqlite3
+/log/*.log
+/public/assets
+/public/packs
+/public/vite
+/tmp
+/vendor/bundle
+/vendor/cache
+/storage/*
+/tmp/*
+
+# Docker specific
+/.dockerignore
+/.env
+docker-compose.override.yml
+docker-compose.production.yml
+.DS_Store # macOS specific
+
+# Node.js specific (for each service)
+*/node_modules/
+*/yarn-error.log
+*/.yarn/cache/
+*/.yarn/install-state.gz
+*/.yarn/unplugged/
+
+# IDE-specific files (e.g., RubyMine, VS Code)
+.idea/
+.vscode/
+*.swp
+*.bak
+*~

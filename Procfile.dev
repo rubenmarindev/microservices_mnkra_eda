@@ -1,0 +1,6 @@
+# CustomerService
+customer_web: cd customer_service && bundle exec rails s -p 3001
+customer_worker: cd customer_service && bundle exec rails runner "OrderCreatedConsumer.start"
+
+# OrderService
+order_web: cd orders_service && bundle exec rails s -p 3000
