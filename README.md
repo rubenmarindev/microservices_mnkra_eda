@@ -63,3 +63,5 @@ bundle exec rspec
 # In microservices_mnkra_eda/customer_service
 bundle exec rspec
 ```
+## Architecture Overview
+<img width="770" height="441" alt="image" src="https://github.com/user-attachments/assets/8b107562-3bc5-4fe9-b54e-c73377220f14" />
